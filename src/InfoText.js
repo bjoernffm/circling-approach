@@ -11,7 +11,7 @@ function InfoText({x, y, text, align = "start", rotate="0"}) {
         <text xmlSpace="preserve" style={infoTextStyle} x={x} y={y} transform={"rotate("+rotate+")"}>
             <tspan style={{textAlign: align, textAnchor: alignToAnchor[align]}}>
                 {text}
-            </tspan>
+            </tspan>     
         </text>
     );
 }
