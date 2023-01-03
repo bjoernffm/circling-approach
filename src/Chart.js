@@ -33,6 +33,7 @@ function Chart({course}) {
                         d="m 101,128.879 h 27.37233"
                         id="path3352-2" />
                     <AltitudeText x="88.225189" y="192.43329" altitude="1000" />
+                    <AltitudeText x="139.30057" y="102.50824" altitude="0000"/>
                     <TdzeText x="83.527054" y="131.0369" altitude="200" />
                     <CourseText x="131.85316" y="150.466" course={course} />
                     <CourseText x="97.810265" y="99.561417" course={(parseInt(course)+180)} align="end" />
