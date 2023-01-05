@@ -37,7 +37,7 @@ function Chart({course}) {
                     <CourseText x="97.810265" y="99.561417" course={(parseInt(course)+180)} align="end" />
                     <CourseText x="-41.847809" y="211.38739" course={(parseInt(course)+45)} align="center" rotationDeg="-45" />
                     <CourseText x="103.79466" y="207.09641" course={course} />
-                    <InfoText x="11.65569" y="127.879" text="Abeam" />
+                    <InfoText x="114.65569" y="127.879" text="Abeam" />
                     <InfoText x="109.65569" y="131.879" text="Threashold" />
 
                     <TextPointer x="103.65569" y="186.98039" text="Start Timer" />
