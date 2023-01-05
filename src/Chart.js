@@ -1,10 +1,10 @@
 import AltitudeText from "./AltitudeText";
 import TdzeText from "./TdzeText";
 import CourseText from "./CourseText";
-import InfoText from "./InfoText";
 import { localizerStyle, alternatePathStyle, activePathStyle, runwayStyle, dashedConnectorStyle } from "./styles";
 import TextPointer from "./TextPointer";
 import TimerPath from "./TimerPath";
+import Triangle from "./Triangle";
 
 function Chart({course}) {
   return (
@@ -47,8 +47,15 @@ function Chart({course}) {
                     <TextPointer x="128.62082" y="128.879" text="Start Timer" />
                     <TextPointer x="101.02235" y="191.27895" text="Breakout" />
 
-                    <TimerPath x="101.91964"  y="183.51461" text="30s" align="center" rotate="-45" />
-                    <TimerPath x="125.16243" y="127.61529" text="30s" align="end" rotate="-90" />
+                    <TimerPath x="101.91964"  y="183.51461" text="30s" align="center" rotationDeg="-45" />
+                    <TimerPath x="125.16243" y="127.61529" text="30s" align="end" rotationDeg="-90" />
+
+                    <Triangle x="128.7" y="148" rotationDeg="90" />
+                    <Triangle x="114" y="176.4" rotationDeg="135" />
+                    <Triangle x="100.975" y="204.38739" rotationDeg="90" />
+                    <Triangle x="128.7" y="100.50824" rotationDeg="90" />
+                    <Triangle x="112.8" y="80.4" rotationDeg="0" />
+                    <Triangle x="100.975" y="102" rotationDeg="-90" />
                 </g>
             </g>
         </g>

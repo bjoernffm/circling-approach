@@ -1,47 +1,44 @@
 import { timerPath, timerTriangle } from "./styles";
 import InfoText from "./InfoText";
 
-function TimerPath ({x, y, text, align, rotate = 0}) {
-
-    let textRotate;
-    let yrot;
-    let xrot;
-
+function TimerPath ({x, y, text, align, rotationDeg = 0}) 
+{
     x = parseFloat(x);
     y = parseFloat(y);
-    rotate = parseFloat(rotate);
-    const convRotate = (rotate * Math.PI / 180);
-    const adjacentLeg = Math.cos(convRotate) * 30;
-    const oppositeLeg = Math.sin(convRotate) * 30;
+    rotationDeg = parseFloat(rotationDeg);
 
-    const distx = Math.sin(convRotate) - Math.cos(convRotate) + adjacentLeg / 2;
-    const disty = Math.sin(convRotate) - Math.cos(convRotate) + oppositeLeg / 2;
+    const rotationRad = (rotationDeg * Math.PI / 180);
+    const adjacentLeg = Math.cos(rotationRad) * 30;
+    const oppositeLeg = Math.sin(rotationRad) * 30;
+    const textOffsetX = Math.sin(rotationRad) - Math.cos(rotationRad) + adjacentLeg / 2;
+    const textOffsetY = Math.sin(rotationRad) - Math.cos(rotationRad) + oppositeLeg / 2;
 
-    if(Math.abs(rotate) == 90){
-        textRotate = 0; 
-        yrot = (y + disty);
-        xrot = (x + distx);
-    } else {
-        textRotate = rotate;
-        yrot = - (x + distx) * Math.sin(convRotate) + (y + disty) * Math.cos(convRotate);
-        xrot = (x + distx) * Math.cos(convRotate) + (y + disty) * Math.sin(convRotate);
+    let textRotate = 0;
+    let textPosX = (x + textOffsetX);
+    let textPosY = (y + textOffsetY);
+
+    if(Math.abs(rotationDeg) !== 90){
+        textRotate = rotationDeg;       
+        textPosX = (x + textOffsetX) * Math.cos(rotationRad) + (y + textOffsetY) * Math.sin(rotationRad);
+        textPosY = - (x + textOffsetX) * Math.sin(rotationRad) + (y + textOffsetY) * Math.cos(rotationRad);
     }
 
-    const rotTrianglex1 = -1.5 * Math.cos(-convRotate) + -0.75 * Math.sin(-convRotate);
-    const rotTriangley1 = 1.5 * Math.sin(-convRotate) + -0.75 * Math.cos(-convRotate);
-    const rotTrianglex2 = 0 * Math.cos(-convRotate) + 1.5 * Math.sin(-convRotate);
-    const rotTriangley2 = -0 * Math.sin(-convRotate) + 1.5 * Math.cos(-convRotate);
+    // https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths
+    const triangleX1 = -1.5 * Math.cos(-rotationRad) + -0.75 * Math.sin(-rotationRad);
+    const triangleY1 = 1.5 * Math.sin(-rotationRad) + -0.75 * Math.cos(-rotationRad);
+    const triangleX2 = 0 * Math.cos(-rotationRad) + 1.5 * Math.sin(-rotationRad);
+    const triangleY2 = -0 * Math.sin(-rotationRad) + 1.5 * Math.cos(-rotationRad);
 
     return(
         <g>
             <path style={timerPath} d={`m ${x},${y} ${adjacentLeg},${oppositeLeg}`} />
             <path
                 style={timerTriangle}
-                d={`m ${x},${y} ${-rotTrianglex1},${-rotTriangley1} ${-rotTrianglex2},${-rotTriangley2} z`} />
+                d={`m ${x},${y} ${-triangleX1},${-triangleY1} ${-triangleX2},${-triangleY2} z`} />
             <path
                 style={timerTriangle}
-                d={`m ${x + adjacentLeg},${y + oppositeLeg} ${rotTrianglex1},${rotTriangley1} ${rotTrianglex2},${rotTriangley2} z`} />                
-            <InfoText x={xrot} y={yrot} text={text} align={align} rotate={textRotate} />
+                d={`m ${x + adjacentLeg},${y + oppositeLeg} ${triangleX1},${triangleY1} ${triangleX2},${triangleY2} z`} />                
+            <InfoText x={textPosX} y={textPosY} text={text} align={align} rotate={textRotate} />
         </g>
     );
 }
