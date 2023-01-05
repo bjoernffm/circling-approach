@@ -38,7 +38,7 @@ function TimerPath ({x, y, text, align, rotationDeg = 0})
             <path
                 style={timerTriangle}
                 d={`m ${x + adjacentLeg},${y + oppositeLeg} ${triangleX1},${triangleY1} ${triangleX2},${triangleY2} z`} />                
-            <InfoText x={textPosX} y={textPosY} text={text} align={align} rotate={textRotate} />
+            <InfoText x={textPosX} y={textPosY} text={text} align={align} rotationDeg={textRotate} />
         </g>
     );
 }
