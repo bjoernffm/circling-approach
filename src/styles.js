@@ -8,6 +8,8 @@ const infoTextStyle = {fontSize:"2.82222px",lineHeight:1.25,fontFamily:"sans-ser
 const altitudePathStyle = {fill:"none",stroke:"#000000",strokeWidth:"0.264583px",strokeLinecap:"butt",strokeLinejoin:"miter"}
 const textPointerPath = {fill:"none",stroke:"#000000",strokeWidth:0.25,strokeLinecap:"butt",strokeLinejoin:"miter",strokeMiterlimit:4,strokeDasharray:"none",strokeOpacity:1}
 const textPointerCircle = {fill:"#ff00ff",stroke:"none",strokeWidth:0.499999,strokeMiterlimit:4,strokeDasharray:"none",strokeDashoffset:0}
+const timerPath = {fill:"none",stroke:"#000000",strokeWidth:0.25,strokeLinecap:"butt",strokeLinejoin:"miter",strokeMiterlimit:4,strokeDasharray:"0.5, 0.25",strokeDashoffset:0,strokeOpacity:1}
+const timerTriangle = {fill:"#000000",stroke:"none",strokeWidth:"0.0716033px",strokeLinecap:"butt",strokeLinejoin:"miter",strokeOpacity:1}
 
 
 export {
@@ -20,5 +22,7 @@ export {
     infoTextStyle,
     altitudePathStyle,
     textPointerPath,
-    textPointerCircle
+    textPointerCircle,
+    timerPath,
+    timerTriangle
 }

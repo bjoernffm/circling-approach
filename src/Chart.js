@@ -4,6 +4,7 @@ import CourseText from "./CourseText";
 import InfoText from "./InfoText";
 import { localizerStyle, alternatePathStyle, activePathStyle, runwayStyle, dashedConnectorStyle } from "./styles";
 import TextPointer from "./TextPointer";
+import TimerPath from "./TimerPath";
 
 function Chart({course}) {
   return (
@@ -40,17 +41,14 @@ function Chart({course}) {
                     <CourseText x="97.810265" y="99.561417" course={(parseInt(course)+180)} align="end" />
                     <CourseText x="-41.847809" y="211.38739" course={(parseInt(course)+45)} align="center" rotate="-45" />
                     <CourseText x="103.79466" y="207.09641" course={course} />
-
                     
                     <TextPointer x="103.65569" y="186.98039" text="Start Timer" />
                     <TextPointer x="128.64665" y="95.626556" text="Final Turn" />
                     <TextPointer x="128.62082" y="128.879" text="Start Timer" />
                     <TextPointer x="101.02235" y="191.27895" text="Breakout" />
 
-                    <InfoText x="-42.651703" y="200.75462" text="30s" align="center" rotate="-45" />
-                    <InfoText x="123.66243" y="113.61529" text="30s" align="end" />
-
-                    
+                    <TimerPath x="101.91964"  y="183.51461" text="30s" align="center" rotate="-45" />
+                    <TimerPath x="125.16243" y="127.61529" text="30s" align="end" rotate="-90" />
                 </g>
             </g>
         </g>
