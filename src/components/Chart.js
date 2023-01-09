@@ -11,7 +11,6 @@ import { useSelector } from "react-redux";
 function Chart({course, tdze, altitude, windDirDeg, windSpeed}) {
 
     const input = useSelector(state => state.input);
-
     course = parseFloat(input.course);
     tdze = parseFloat(input.tdze);
     altitude = parseFloat(input.altitude);

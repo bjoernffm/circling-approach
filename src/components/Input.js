@@ -1,17 +1,9 @@
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const Input = () => {
 
     const input = useSelector(state => state.input);
     const dispatch = useDispatch();
-    const course = input.course;
-
-    //const [course, setCourse] = useState('0');
-    const [tdze, setTdze] = useState('0');
-    const [altitude, setAltitude] = useState('0');
-    const [windDir, setWindDir] = useState('0');
-    const [windSpeed, setWindSpeed] = useState('0');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,8 +17,8 @@ const Input = () => {
                     <input
                         type="number"
                         required
-                        value={course}
-                        onChange={(e) => dispatch({type: 'COURSE', course: e.target.value})}
+                        value={input.course}
+                        onChange={(e) => dispatch({type: 'COURSE', payload: e.target.value})}
                     />
                     <label>°</label>
                 </p>
@@ -35,8 +27,8 @@ const Input = () => {
                     <input
                         type="number"
                         required
-                        value={tdze}
-                        onChange={(e) => setTdze(e.target.value)}
+                        value={input.tdze}
+                        onChange={(e) => dispatch({type:'TDZE', payload: e.target.value})}
                     />
                     <label>ft</label>
                 </p>
@@ -45,8 +37,8 @@ const Input = () => {
                     <input
                         type="number"
                         required
-                        value={altitude}
-                        onChange={(e) => setAltitude(e.target.value)}
+                        value={input.altitude}
+                        onChange={(e) => dispatch({type:'ALTITUDE', payload: e.target.value})}
                     />
                     <label>ft</label>
                 </p>
@@ -55,8 +47,8 @@ const Input = () => {
                     <input
                         type="number"
                         required
-                        value={windDir}
-                        onChange={(e) => setWindDir(e.target.value)}
+                        value={input.windDirDeg}
+                        onChange={(e) => dispatch({type:'WINDDIR', payload: e.target.value})}
                     />
                     <label>°</label>
                 </p>
@@ -65,8 +57,8 @@ const Input = () => {
                     <input
                         type="number"
                         required
-                        value={windSpeed}
-                        onChange={(e) => setWindSpeed(e.target.value)}
+                        value={input.windSpeed}
+                        onChange={(e) => dispatch({type:'WINDSPEED', payload: e.target.value})}
                     />
                     <label>kn</label>
                 </p>
