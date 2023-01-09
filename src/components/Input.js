@@ -62,6 +62,11 @@ const Input = () => {
                     />
                     <label>kn</label>
                 </p>
+                <p>
+                    <button onClick={() => dispatch({type:'SWITCHVIEW'})}>
+                        Switch View
+                    </button>
+                </p>
             </form>
         </div> 
     );

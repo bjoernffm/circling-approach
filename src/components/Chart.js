@@ -8,14 +8,14 @@ import Triangle from "./Triangle";
 import InfoText from "./InfoText";
 import { useSelector } from "react-redux";
 
-function Chart({course, tdze, altitude, windDirDeg, windSpeed}) {
+function Chart() {
 
     const input = useSelector(state => state.input);
-    course = parseFloat(input.course);
-    tdze = parseFloat(input.tdze);
-    altitude = parseFloat(input.altitude);
-    windDirDeg = parseFloat(input.windDirDeg);
-    windSpeed = parseFloat(input.windSpeed);
+    const course = parseFloat(input.course);
+    const tdze = parseFloat(input.tdze);
+    const altitude = parseFloat(input.altitude);
+    const windDirDeg = parseFloat(input.windDirDeg);
+    const windSpeed = parseFloat(input.windSpeed);
 
     const windDirRad = ((windDirDeg - course + 45) * Math.PI / 180);
     const timeToLowerAltitude = Math.ceil(((altitude - tdze) / 100) * 3);
@@ -70,6 +70,7 @@ function Chart({course, tdze, altitude, windDirDeg, windSpeed}) {
                         <Triangle x="128.7" y="100.50824" rotationDeg="90" />
                         <Triangle x="112.8" y="80.4" rotationDeg="0" />
                         <Triangle x="100.975" y="102" rotationDeg="-90" />
+
                     </g>
                 </g>
             </g>

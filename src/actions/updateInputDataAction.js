@@ -32,3 +32,9 @@ export const updateWindSpeedInput = (windSpeed = 0) => {
         payload: windSpeed
     }
 }
+
+export const updateView = () => {
+    return {
+        type: 'SWITCHVIEW'
+    }
+}

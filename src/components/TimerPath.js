@@ -1,7 +1,7 @@
 import { timerPath, timerTriangle } from "../styles";
 import InfoText from "./InfoText";
 
-function TimerPath ({x, y, text, align, rotationDeg = 0}) 
+function TimerPath ({x, y, text, align, rotationDeg = 0, textPlacement}) 
 {
     x = parseFloat(x);
     y = parseFloat(y);
@@ -10,17 +10,33 @@ function TimerPath ({x, y, text, align, rotationDeg = 0})
     const rotationRad = (rotationDeg * Math.PI / 180);
     const adjacentLeg = Math.cos(rotationRad) * 30;
     const oppositeLeg = Math.sin(rotationRad) * 30;
-    const textOffsetX = Math.sin(rotationRad) - Math.cos(rotationRad) + adjacentLeg / 2;
+    let textOffsetX = Math.sin(rotationRad) - Math.cos(rotationRad) + adjacentLeg / 2;
     const textOffsetY = Math.sin(rotationRad) - Math.cos(rotationRad) + oppositeLeg / 2;
+
+    if(textPlacement === "right"){
+        textOffsetX = -textOffsetX;
+    }
 
     let textRotate = 0;
     let textPosX = (x + textOffsetX);
     let textPosY = (y + textOffsetY);
 
     if(Math.abs(rotationDeg) !== 90){
-        textRotate = rotationDeg;       
-        textPosX = (x + textOffsetX) * Math.cos(rotationRad) + (y + textOffsetY) * Math.sin(rotationRad);
-        textPosY = - (x + textOffsetX) * Math.sin(rotationRad) + (y + textOffsetY) * Math.cos(rotationRad);
+        if(Math.abs(rotationDeg) < 90){
+            textRotate = rotationDeg;
+            textPosX = (x + textOffsetX) * Math.cos(-rotationRad) - (y + textOffsetY) * Math.sin(-rotationRad);
+            textPosY = (x + textOffsetX) * Math.sin(-rotationRad) + (y + textOffsetY) * Math.cos(-rotationRad);
+        } else if(rotationDeg < -90) {
+            textRotate = rotationDeg + 180;
+            const rotationRad = (rotationDeg * Math.PI / 180);
+            textPosX = -((x + textOffsetX) * Math.cos(-rotationRad) - (y + textOffsetY) * Math.sin(-rotationRad));
+            textPosY = -((x + textOffsetX) * Math.sin(-rotationRad) + (y + textOffsetY) * Math.cos(-rotationRad));
+        } else {
+            textRotate = rotationDeg - 180;
+            const rotationRad = (rotationDeg * Math.PI / 180);
+            textPosX = -((x + textOffsetX) * Math.cos(-rotationRad) - (y + textOffsetY) * Math.sin(-rotationRad));
+            textPosY = -((x + textOffsetX) * Math.sin(-rotationRad) + (y + textOffsetY) * Math.cos(-rotationRad));
+        }
     }
 
     // https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths

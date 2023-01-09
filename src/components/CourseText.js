@@ -27,7 +27,7 @@ const alignToAnchor = {
 
 function CourseText({x, y, course, align = "start", rotationDeg="0"}) {
     return (
-        <text xmlSpace="preserve" style={mainTextStyle} x={x} y={y} transform={"rotate("+rotationDeg+")"}>
+        <text xmlSpace="preserve" style={mainTextStyle} x={x} y={y} transform={`rotate(${rotationDeg})`}>
             <tspan style={{fontWeight:"bold", textAlign: align, textAnchor: alignToAnchor[align]}}>
                 {formatCourse(course)}°
             </tspan>

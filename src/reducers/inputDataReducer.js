@@ -3,7 +3,8 @@ const initialState = {
     tdze: 0,
     altitude: 0,
     windDirDeg: 0,
-    windSpeed: 0
+    windSpeed: 0,
+    view: true
 };
 
 const inputDataReducer = (state = initialState, action) => {
@@ -33,6 +34,11 @@ const inputDataReducer = (state = initialState, action) => {
             ...state,
             windSpeed: action.payload
         };
+        case 'SWITCHVIEW':
+            return {
+                ...state,
+                view: !state.view
+            };
         default:
             return state;
     }
