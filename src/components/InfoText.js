@@ -1,4 +1,4 @@
-import { infoTextStyle } from "./styles";
+import { infoTextStyle } from "../styles";
 
 const alignToAnchor = {
     start: "start",

@@ -1,4 +1,4 @@
-import { mainTextStyle, altitudePathStyle } from "./styles";
+import { mainTextStyle, altitudePathStyle } from "../styles";
 
 function AltitudeText({x, y, altitude}) {
     x = parseFloat(x);

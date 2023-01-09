@@ -1,4 +1,4 @@
-import { textPointerCircle, textPointerPath } from "./styles";
+import { textPointerCircle, textPointerPath } from "../styles";
 import InfoText from "./InfoText"
 
 function TextPointer ({x, y, text}) {

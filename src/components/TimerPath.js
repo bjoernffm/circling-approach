@@ -1,4 +1,4 @@
-import { timerPath, timerTriangle } from "./styles";
+import { timerPath, timerTriangle } from "../styles";
 import InfoText from "./InfoText";
 
 function TimerPath ({x, y, text, align, rotationDeg = 0}) 

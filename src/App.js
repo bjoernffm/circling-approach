@@ -1,10 +1,10 @@
 import './App.css';
-import Chart from './Chart';
+import Layout from './components/Layout';
 
 function App() {
   return (
     <div className="App">
-      <Chart course="96" />
+      <Layout />
     </div>
   );
 }

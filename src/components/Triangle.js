@@ -1,4 +1,4 @@
-import { timerTriangle } from "./styles";
+import { timerTriangle } from "../styles";
 
 function Triangle({x, y, rotationDeg="0"}){
     x = parseFloat(x);

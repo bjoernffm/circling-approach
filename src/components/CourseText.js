@@ -1,7 +1,6 @@
-import { mainTextStyle } from "./styles";
+import { mainTextStyle } from "../styles";
 
 function formatCourse(course) {
-    course = parseInt(course);
     
     while(course < 0) {
         course += 360
