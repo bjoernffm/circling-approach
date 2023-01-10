@@ -51,7 +51,7 @@ function Chart() {
 
                     <CourseText x="46.8" y="152" course={course} />
                     <CourseText x="62" y="44.6" course={course + 180} />
-                    <CourseText x="115.4" y="59.8" course={course + 45} align="center" rotationDeg="45" />
+                    <CourseText x="115.4" y="59.8" course={course - 45} align="center" rotationDeg="45" />
                     <CourseText x="18.8" y="95.7" course={course} />
 
                     <InfoText x="35" y="73" text="Abeam" />

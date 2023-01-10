@@ -7,7 +7,7 @@ const Layout = () => {
     const input = useSelector(state => state.input);
 
     return(
-        <div className="container text-center mt-5" style={{maxWidth: "800px"}}>
+        <div className="container text-center mt-5" style={{maxWidth: "900px"}}>
             <div class="row align-items-center g-2">
                 <div className="col">
                     <Input />
