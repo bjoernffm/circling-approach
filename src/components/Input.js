@@ -63,7 +63,11 @@ const Input = () => {
                     <label>kn</label>
                 </p>
                 <p>
-                    <button onClick={() => dispatch({type:'SWITCHVIEW'})}>
+                    <button 
+                        type="button"
+                        class="btn btn-primary"
+                        onClick={() => dispatch({type:'SWITCHVIEW'})}
+                    >
                         Switch View
                     </button>
                 </p>

@@ -3,15 +3,27 @@ import InfoText from "./InfoText";
 
 function TimerPath ({x, y, text, align, rotationDeg = 0, textPlacement}) 
 {
+    const calcTextPosX = (rotationRad, textOffsetX) => {
+        return (x + textOffsetX) * Math.cos(-rotationRad) - (y + textOffsetY) * Math.sin(-rotationRad);
+    }
+
+    const calcTextPosY = (rotationRad, textOffsetY) => {
+        return (x + textOffsetX) * Math.sin(-rotationRad) + (y + textOffsetY) * Math.cos(-rotationRad);
+    }
+
+    const convDegToRad = (rotationDeg) => {
+       return (rotationDeg * Math.PI / 180);
+    }
+
     x = parseFloat(x);
     y = parseFloat(y);
     rotationDeg = parseFloat(rotationDeg);
 
-    const rotationRad = (rotationDeg * Math.PI / 180);
+    const rotationRad = convDegToRad(rotationDeg);
     const adjacentLeg = Math.cos(rotationRad) * 30;
     const oppositeLeg = Math.sin(rotationRad) * 30;
     let textOffsetX = Math.sin(rotationRad) - Math.cos(rotationRad) + adjacentLeg / 2;
-    const textOffsetY = Math.sin(rotationRad) - Math.cos(rotationRad) + oppositeLeg / 2;
+    const textOffsetY = Math.sin(rotationRad) + Math.cos(rotationRad) + oppositeLeg / 2;
 
     if(textPlacement === "right"){
         textOffsetX = -textOffsetX;
@@ -24,18 +36,16 @@ function TimerPath ({x, y, text, align, rotationDeg = 0, textPlacement})
     if(Math.abs(rotationDeg) !== 90){
         if(Math.abs(rotationDeg) < 90){
             textRotate = rotationDeg;
-            textPosX = (x + textOffsetX) * Math.cos(-rotationRad) - (y + textOffsetY) * Math.sin(-rotationRad);
-            textPosY = (x + textOffsetX) * Math.sin(-rotationRad) + (y + textOffsetY) * Math.cos(-rotationRad);
+            textPosX = calcTextPosX(rotationRad, textOffsetX);
+            textPosY = calcTextPosY(rotationRad, textOffsetY);
         } else if(rotationDeg < -90) {
             textRotate = rotationDeg + 180;
-            const rotationRad = (rotationDeg * Math.PI / 180);
-            textPosX = -((x + textOffsetX) * Math.cos(-rotationRad) - (y + textOffsetY) * Math.sin(-rotationRad));
-            textPosY = -((x + textOffsetX) * Math.sin(-rotationRad) + (y + textOffsetY) * Math.cos(-rotationRad));
+            textPosX = -calcTextPosX(rotationRad, textOffsetX);
+            textPosY = -calcTextPosY(rotationRad, textOffsetY);
         } else {
             textRotate = rotationDeg - 180;
-            const rotationRad = (rotationDeg * Math.PI / 180);
-            textPosX = -((x + textOffsetX) * Math.cos(-rotationRad) - (y + textOffsetY) * Math.sin(-rotationRad));
-            textPosY = -((x + textOffsetX) * Math.sin(-rotationRad) + (y + textOffsetY) * Math.cos(-rotationRad));
+            textPosX = -calcTextPosX(rotationRad, textOffsetX);
+            textPosY = -calcTextPosY(rotationRad, textOffsetY);
         }
     }
 

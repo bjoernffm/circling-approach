@@ -7,12 +7,14 @@ const Layout = () => {
     const input = useSelector(state => state.input);
 
     return(
-        <div className="row">
-            <div className="column left">
-                <Input />
-            </div>
-            <div className="column right">
-                {input.view? <Chart /> : <ChartLeft  />}
+        <div className="container text-center mt-5" style={{maxWidth: "800px"}}>
+            <div class="row align-items-center g-2">
+                <div className="col">
+                    <Input />
+                </div>
+                <div className="col-8">
+                    {input.view? <Chart /> : <ChartLeft  />}
+                </div>
             </div>
         </div>
     );
