@@ -36,15 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-.column {
-  float: left;
-}
-
-.left {
-  width: 40%;
-}
-
-.right {
-  width: 60%;
-}
