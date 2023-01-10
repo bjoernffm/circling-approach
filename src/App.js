@@ -1,10 +1,13 @@
 import './App.css';
-import Chart from './Chart';
+import Layout from './components/Layout';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="App">
-      <Chart course="96" />
+      <Layout />
+      <Footer />
     </div>
   );
 }
